@@ -36,7 +36,6 @@ or across multiple lines:
   &#36;&#36;
 ```
 
-Anything KaTeX understands is supported — see the [KaTeX function reference](https://katex.org/docs/supported.html).
 
 The extension deliberately ignores patterns that look like prices, e.g. `&#36;5 and &#36;10` (whitespace and digit boundaries are excluded so currency text never accidentally renders).
 
@@ -51,7 +50,7 @@ The extension deliberately ignores patterns that look like prices, e.g. `&#36;5 
 ### Manual
 
 ```sh
-git clone https://github.com/yugao/nimbalyst-katex-extension
+git clone https://github.com/gaoyuan/nimbalyst-katex-extension
 cd nimbalyst-katex-extension
 npm install
 npm run build
@@ -61,7 +60,6 @@ Then in Nimbalyst's Developer panel, run `extension_install` against this direct
 
 ## How it works
 
-The extension contributes two Lexical decorator nodes (`InlineMathNode`, `BlockMathNode`) and three Markdown transformers:
 
 | Transformer | Type | Purpose |
 | --- | --- | --- |
@@ -82,6 +80,7 @@ katex.insert_equation({
 })
 ```
 
+Anything KaTeX understands is supported — see the [KaTeX function reference](https://katex.org/docs/supported.html).
 Permissions: `ai` (declared in `manifest.json`). Claude can call this tool whenever a Markdown document is the active editor.
 
 ## Development
@@ -99,6 +98,7 @@ extension_reload({
   path: "/absolute/path/to/this/repo"
 })
 ```
+The extension contributes two Lexical decorator nodes (`InlineMathNode`, `BlockMathNode`) and three Markdown transformers:
 
 ## Limitations & roadmap
 
