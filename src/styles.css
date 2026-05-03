@@ -1,0 +1,117 @@
+/*
+ * KaTeX core stylesheet - imported here so Vite emits the .woff2 fonts and
+ * the bundled `dist/index.css` actually contains the rendering rules.
+ */
+@import 'katex/dist/katex.min.css';
+
+/* --- Rendered math --------------------------------------------------- */
+
+.nim-katex {
+  cursor: text;
+  border-radius: 3px;
+  padding: 0 2px;
+  transition: background-color 0.12s ease;
+}
+
+.nim-katex:hover {
+  background-color: var(--nim-bg-hover, rgba(127, 127, 127, 0.1));
+}
+
+.nim-katex-block {
+  display: block;
+  text-align: center;
+  margin: 0.6em 0;
+  padding: 0.4em 0.6em;
+}
+
+.nim-katex-inline {
+  display: inline;
+}
+
+.nim-katex-empty {
+  color: var(--nim-text-muted, #888);
+  font-style: italic;
+  border: 1px dashed var(--nim-border, #ccc);
+  padding: 1px 6px;
+  font-family: var(--nim-font-mono, ui-monospace, monospace);
+  font-size: 0.9em;
+}
+
+.nim-katex-error {
+  color: #d32f2f;
+  background: rgba(211, 47, 47, 0.08);
+  font-family: var(--nim-font-mono, ui-monospace, monospace);
+  font-size: 0.85em;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+/* --- Editing UI ------------------------------------------------------- */
+
+.nim-katex-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  border: 1px solid var(--nim-primary, #4a8af4);
+  border-radius: 4px;
+  background: var(--nim-bg-secondary, rgba(127, 127, 127, 0.06));
+}
+
+.nim-katex-edit-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0.6em 0;
+  padding: 8px 10px;
+}
+
+.nim-katex-edit-input,
+.nim-katex-edit-textarea {
+  font-family: var(--nim-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 0.95em;
+  background: var(--nim-bg, transparent);
+  color: var(--nim-text, inherit);
+  border: 1px solid var(--nim-border, #ccc);
+  border-radius: 3px;
+  padding: 3px 6px;
+  outline: none;
+}
+
+.nim-katex-edit-input:focus,
+.nim-katex-edit-textarea:focus {
+  border-color: var(--nim-primary, #4a8af4);
+}
+
+.nim-katex-edit-textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 2.4em;
+  line-height: 1.4;
+}
+
+.nim-katex-edit-preview {
+  display: inline-block;
+  padding: 2px 6px;
+  border-left: 2px solid var(--nim-border, #ccc);
+  color: var(--nim-text, inherit);
+  opacity: 0.85;
+}
+
+.nim-katex-edit-block .nim-katex-edit-preview {
+  border-left: none;
+  border-top: 1px solid var(--nim-border, #ccc);
+  margin-top: 6px;
+  padding-top: 6px;
+  text-align: center;
+}
+
+/* --- Host element overrides ------------------------------------------ */
+
+.nim-katex-host-block {
+  display: block;
+}
+
+.nim-katex-host-inline {
+  display: inline;
+}

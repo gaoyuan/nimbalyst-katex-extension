@@ -1,0 +1,56 @@
+{
+  "id": "com.nimbalyst.katex-math",
+  "name": "KaTeX Math",
+  "version": "0.1.0",
+  "description": "Render LaTeX math equations ($...$ and $$...$$) inline in the Markdown editor using KaTeX",
+  "author": "Yuan Gao",
+  "main": "dist/index.js",
+  "styles": "dist/index.css",
+  "apiVersion": "1.0.0",
+  "marketplace": {
+    "categories": ["writing"],
+    "tags": ["math", "latex", "katex", "markdown", "equations", "tex", "science"],
+    "icon": "functions",
+    "tagline": "Live LaTeX math rendering for the Markdown editor",
+    "longDescription": "Adds inline ($...$) and display-mode ($$...$$) LaTeX math rendering to the WYSIWYG Markdown editor, powered by KaTeX. Equations render as you type, support click-to-edit with a live preview, round-trip cleanly to plain Markdown, and work inside blockquotes, lists, and tables. Includes slash commands for inserting math and an AI tool so Claude can author equations directly.",
+    "highlights": [
+      "Inline ($x$) and block ($$x$$) math rendered with KaTeX",
+      "Click-to-edit with live preview",
+      "Works inside blockquotes, lists, and tables",
+      "Round-trips through plain Markdown — no proprietary syntax",
+      "AI tool: Claude can write equations directly into your document"
+    ],
+    "fileTypes": [".md", ".markdown"],
+    "repositoryUrl": "https://github.com/gaoyuan/nimbalyst-katex-extension"
+  },
+  "permissions": {
+    "ai": true
+  },
+  "contributions": {
+    "nodes": ["InlineMathNode", "BlockMathNode"],
+    "transformers": [
+      "BLOCK_MATH_INLINE_TRANSFORMER",
+      "BLOCK_MATH_TRANSFORMER",
+      "INLINE_MATH_TRANSFORMER"
+    ],
+    "aiTools": ["katex.insert_equation"],
+    "slashCommands": [
+      {
+        "id": "katex.insert-inline",
+        "title": "Inline Math",
+        "description": "Insert an inline LaTeX math expression",
+        "icon": "functions",
+        "keywords": ["math", "latex", "katex", "equation", "inline"],
+        "handler": "handleInsertInlineMath"
+      },
+      {
+        "id": "katex.insert-block",
+        "title": "Block Math",
+        "description": "Insert a display-mode LaTeX math block",
+        "icon": "calculate",
+        "keywords": ["math", "latex", "katex", "equation", "display", "block"],
+        "handler": "handleInsertBlockMath"
+      }
+    ]
+  }
+}

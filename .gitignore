@@ -1,0 +1,10 @@
+node_modules/
+*.log
+.DS_Store
+.vite/
+*.tsbuildinfo
+
+# Note: dist/ is intentionally NOT ignored. Nimbalyst's "Install from
+# GitHub URL" copies the repo verbatim and uses the existing dist/ — it
+# does not run `npm install && npm run build`. Always rebuild before
+# tagging a release.
